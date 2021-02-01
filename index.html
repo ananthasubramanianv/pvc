@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+   <head>
+       <title> Policy Value Calculator </title>
+   </head>
+   <body>
+      <h2 style = "text-align: center;"> <u> Policy Value Calculator </u> </h2>
+<div style = "text-align: center;"> Please enter the below values and click submit to calculate the maturity value.</div>
+     <br>
+      	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+	    {% for message in messages %}
+		  <div>
+			{{message}}
+		  </div>
+		{% endfor %}
+	  {% endif %}
+	{% endwith %}
+      <br>
+      <form action = "/" method = post>
+             {{ form.hidden_tag() }}
+               {{ form.polnum.label }} &emsp; {{ form.polnum }}
+                <br><br>
+               {{ form.poldat.label }}&nbsp;&nbsp;
+                <input id="poldat" name="poldat" type="date">
+                <br><br>
+               {{ form.premium.label }}&nbsp;&emsp;&emsp;&emsp;&ensp; {{ form.premium }}
+                <br><br>
+               {{ form.membership.label }} &emsp;
+                <input id="membership-y" name="membership" type="radio" value="Y">
+                <label for="membership-y">Yes</label> &ensp;
+                <input id="membership-n" name="membership" type="radio" value="N">
+                <label for="membership-n">No</label>
+                <br><br><br>
+               <div style="margin-left: 8%;">  {{ form.submit }} </div>
+                      </form>
+            {{ form.hidden_tag() }}
+        <br><br>
+      <b>Calculated maturity value is <u> {{ value }} </u>.</b>
+     </body>
+</html>
