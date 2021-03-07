@@ -1,3 +1,3 @@
 runtime: python37
-entrypoint: gunicorn -b :8080 polvalcalc:app
+entrypoint: gunicorn -b :0.0.0.0 -w 2 polvalcalc:app
 
